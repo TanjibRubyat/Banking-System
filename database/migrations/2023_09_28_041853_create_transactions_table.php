@@ -15,7 +15,7 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->enum('transaction_type',['deposit','withdrawal']);
+            $table->tinyInteger('transaction_type')->comment('0=withdrawal,1=deposit');
             $table->double('amount');
             $table->decimal('fee');
             $table->date('date');

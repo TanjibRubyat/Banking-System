@@ -16,8 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('account_type',['individual','business']);
-            $table->double('balance');
+            $table->tinyInteger('account_type')->comments('0=individual, 1=business');
+            $table->double('balance')->default(0);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
